@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Image/Video Generator</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <video autoplay muted loop id="bodyBackgroundVideo">
+        <source src="{{ url_for('static', filename='bg-1.mp4') }}" type="video/mp4" />
+      </video>
+    <div class="container">
+        
+
+      <video autoplay muted loop id="backgroundVideo">
+        <source src="{{ url_for('static', filename='background.mp4') }}" type="video/mp4" />
+      </video>
+
+      <div class="content">
+        <div class="keyboard">
+            <span class="key">N</span>
+            <span class="key">e</span>
+            <span class="key">x</span>
+            <span class="key">t</span>
+            <span class="key">G</span>
+            <span class="key">e</span>
+            <span class="key">n</span>
+            <span class="key">V</span>
+            <span class="key">i</span>
+            <span class="key">s</span>
+            <span class="key">i</span>
+            <span class="key">o</span>
+            <span class="key">n</span>
+            <span class="key">s</span>
+            
+          </div>
+        
+        <p class="subtitle">
+          
+        </p>
+        <div class="input-wrapper">
+          <textarea
+            id="prompt"
+            placeholder="Enter your prompt here..."
+            class="input-field"
+          ></textarea>
+          <div class="input-focus-effect"></div>
+        </div>
+
+        <div class="button-group">
+          <button id="generateImageBtn" class="btn btn-primary">
+            <span class="btn-content">
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"
+                />
+              </svg>
+              Generate Image
+            </span>
+          </button>
+          <button id="generateVideoBtn" class="btn btn-secondary">
+            <span class="btn-content">
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polygon points="5 3 19 12 5 21 5 3" />
+              </svg>
+              Generate Video
+            </span>
+          </button>
+        </div>
+
+        <div id="preview" class="preview"></div>
+        <a
+          id="downloadLink"
+          href="#"
+          download
+          class="download-link"
+          style="display: none"
+          ><span class="download-icon">
+            <svg
+              class="icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+          </span>
+          Download File
+        </a>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
